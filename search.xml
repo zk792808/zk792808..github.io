@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[markdown基本语法]]></title>
+    <url>%2F2019%2F06%2F17%2Fjava%E5%9F%BA%E7%A1%80%2F</url>
+    <content type="text"><![CDATA[1. 标题示例 123456# 这是一级标题## 这是二级标题### 这是三级标题#### 这是四级标题##### 这是五级标题###### 这是六级标题 效果如下： 这是一级标题这是二级标题这是三级标题这是四级标题这是五级标题这是六级标题 2. 字体 加粗示例：1**加粗的字体** 效果效果如下： 加粗的字体 斜体示例： 1*斜体的字体* 效果效果如下： 加粗的字体 斜体加粗示例： 1***斜体加粗*** 效果如下： 斜体加粗 删除线示例：1~~带有删除线的字体~~ 效果如下： 带有删除线的字体 3. 引用示例： 1&gt;这是引用的内容 效果如下： 这是引用的内容 4. 分割线示例： 123ps:使用时要去掉////***//--- 效果如下： 5. 图片语法 1234![图片alt](图片地址 &apos;&apos;图片title&apos;&apos;)图片alt就是显示在图片下面的文字，相当于对图片内容的解释。图片title是图片的标题，当鼠标移到图片上时显示的内容。title可加可不加 示例： 1![无法显示请M我](https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2426942089,1305444686&amp;fm=26&amp;gp=0.jpg &quot;搬砖使我快乐&quot;) 效果如下： 6. 列表 无序列表示例：1234567- 列表1 - 子列表1 - 子类表2 - 子子列表1 - 子子列表2- 列表2- 列表3 效果如下： 列表1 子列表1 子类表2 子子列表1 子子列表2 列表2 列表3 有序列表示例：1231.有序列表12.有序列表23.有序列表3 效果如下：1.有序列表12.有序列表23.有序列表3 7.表格语法： 12345678910|表头|表头|表头||---|:--:|---:|内容|内容|内容内容|内容|内容第二行分割表头和内容。- 有一个就行，为了对齐，多加了几个文字默认居左-两边加：表示文字居中-右边加：表示文字居右 示例： 12345|姓名|技能|排行||--|:--:|--:|张三|剑|大哥李四|斧|二哥王五|枪|三弟 效果如下： 姓名 技能 排行 张三 剑 大哥 李四 斧 二哥 王五 枪 三弟 8.代码语法： 单行代码：代码之间分别用一个反引号包起来示例： 1`&lt;html&gt;&lt;/html&gt;` 效果如下： &lt;html&gt;&lt;/html&gt; 代码块：代码之间分别用三个反引号包起来，且两边的反引号单独占一行示例： 12345ps:实际使用请去掉[][```] &lt;html&gt;&lt;/html&gt; &lt;html&gt;&lt;/html&gt;[```] 效果如下： 12&lt;html&gt;&lt;/html&gt;&lt;html&gt;&lt;/html&gt; 9.超链接跳转语法： 1[文字内容](网址) 示例： 1[百度一下]（www.baidu.com） 效果如下百度一下]]></content>
+      <categories>
+        <category>Markdown</category>
+        <category>基本使用</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[newtest]]></title>
+    <url>%2F2019%2F06%2F16%2Fnewtest%2F</url>
+    <content type="text"><![CDATA[&lt;% for (var link in site.data.menu) { %&gt; &lt;%= link %&gt; &lt;% } %&gt;]]></content>
+      <tags>
+        <tag>tags</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[wzkBlog]]></title>
+    <url>%2F2019%2F06%2F16%2FwzkBlog%2F</url>
+    <content type="text"><![CDATA[竟然看到我 asdf]]></content>
+      <tags>
+        <tag>tags</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[post title with whitespace]]></title>
+    <url>%2F2019%2F06%2F16%2Fpost-title-with-whitespace%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World测试工具]]></title>
+    <url>%2F2019%2F06%2F16%2FHello-World%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>
