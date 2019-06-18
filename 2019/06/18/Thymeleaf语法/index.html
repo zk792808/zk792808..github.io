@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-big-counter.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Thymeleaf3语法 文章目录结构  一. th属性1. 常用th属性解读html有的属性，Thymeleaf基本都有，而常用的属性大概有七八个。其中th属性执行的优先级从1~8，数字越低优先级越高 1. th:text 设置当前元素的文本内容，相同功能的还有th:utext，两者的区别在于前者不会转义html标签，后者会。优先级不高：order=7   HTML代码 123&amp;lt;!--th">
+<meta name="keywords" content="Thymeleaf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Thymeleaf语法">
+<meta property="og:url" content="http://yoursite.com/2019/06/18/Thymeleaf语法/index.html">
+<meta property="og:site_name" content="zhenKang">
+<meta property="og:description" content="Thymeleaf3语法 文章目录结构  一. th属性1. 常用th属性解读html有的属性，Thymeleaf基本都有，而常用的属性大概有七八个。其中th属性执行的优先级从1~8，数字越低优先级越高 1. th:text 设置当前元素的文本内容，相同功能的还有th:utext，两者的区别在于前者不会转义html标签，后者会。优先级不高：order=7   HTML代码 123&amp;lt;!--th">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2019/06/18/Thymeleaf语法/base.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/18/Thymeleaf语法/div-p%E4%B8%80%E8%B5%B7%E9%81%8D%E5%8E%86.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/06/18/Thymeleaf语法/%E9%81%8D%E5%8E%86p.png">
+<meta property="og:image" content="http://yoursite.com/2019/06/18/Thymeleaf语法/%E5%BC%95%E7%94%A8js.png">
+<meta property="og:updated_time" content="2019-06-18T15:54:12.298Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Thymeleaf语法">
+<meta name="twitter:description" content="Thymeleaf3语法 文章目录结构  一. th属性1. 常用th属性解读html有的属性，Thymeleaf基本都有，而常用的属性大概有七八个。其中th属性执行的优先级从1~8，数字越低优先级越高 1. th:text 设置当前元素的文本内容，相同功能的还有th:utext，两者的区别在于前者不会转义html标签，后者会。优先级不高：order=7   HTML代码 123&amp;lt;!--th">
+<meta name="twitter:image" content="http://yoursite.com/2019/06/18/Thymeleaf语法/base.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/06/18/Thymeleaf语法/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Thymeleaf语法 | zhenKang</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">zhenKang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">奋斗的年轻人</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/18/Thymeleaf语法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhenKang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/work.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhenKang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Thymeleaf语法
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-18 17:17:15 / 修改时间：23:54:12" itemprop="dateCreated datePublished" datetime="2019-06-18T17:17:15+08:00">2019-06-18</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/模板引擎/" itemprop="url" rel="index"><span itemprop="name">模板引擎</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/模板引擎/Thymeleaf/" itemprop="url" rel="index"><span itemprop="name">Thymeleaf</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/06/18/Thymeleaf语法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/18/Thymeleaf语法/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Thymeleaf3语法"><a href="#Thymeleaf3语法" class="headerlink" title="Thymeleaf3语法"></a>Thymeleaf3语法</h1><p> <strong>文章目录结构</strong><br> <img src="base.png" alt="文章目录结构" title="文章目录结构"></p>
+<h2 id="一-th属性"><a href="#一-th属性" class="headerlink" title="一. th属性"></a>一. th属性</h2><h3 id="1-常用th属性解读"><a href="#1-常用th属性解读" class="headerlink" title="1. 常用th属性解读"></a>1. 常用th属性解读</h3><p><strong><em>html有的属性，Thymeleaf基本都有，而常用的属性大概有七八个。其中th属性执行的优先级从1~8，数字越低优先级越高</em></strong></p>
+<h4 id="1-th-text"><a href="#1-th-text" class="headerlink" title="1. th:text"></a>1. th:text</h4><blockquote>
+<p>设置当前元素的文本内容，相同功能的还有th:utext，两者的区别在于前者不会转义html标签，后者会。优先级不高：order=7</p>
+</blockquote>
+<ul>
+<li><p>HTML代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--th:text 设置当前元素的文本内容，常用，优先级不高--&gt;</span><br><span class="line">&lt;p th:text=&quot;$&#123;thText&#125;&quot; /&gt;</span><br><span class="line">&lt;p th:utext=&quot;$&#123;thUText&#125;&quot; /&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>后台代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;thymeleaf&quot;)</span><br><span class="line">public String thymeleaf(ModelMap map) &#123;</span><br><span class="line">    map.put(&quot;thText&quot;, &quot;th:text 设置文本内容 &lt;b&gt;加粗&lt;/b&gt;&quot;);</span><br><span class="line">    map.put(&quot;thUText&quot;, &quot;th:utext 设置文本内容 &lt;b&gt;加粗&lt;/b&gt;&quot;);</span><br><span class="line">    return &quot;grammar/thymeleaf&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>效果如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">th:text 设置文本内容 &lt;b&gt;加粗&lt;/b&gt;</span><br><span class="line">th:utext 设置文本内容 加粗</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="2-th-value"><a href="#2-th-value" class="headerlink" title="2. th:value"></a>2. th:value</h4><blockquote>
+<p>设置当前元素的value值，类似修改指定属性的还有th:src，th:href。优先级不高：order=6</p>
+</blockquote>
+<ul>
+<li><p>HTML代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--th:value 设置当前元素的value值，常用，优先级仅比th:text高--&gt;</span><br><span class="line">&lt;input type=&quot;text&quot; th:value=&quot;$&#123;thValue&#125;&quot; /&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>后台代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   @RequestMapping(&quot;/testThymeleaf&quot;)</span><br><span class="line">public String testThymeleaf(ModelMap map)&#123;</span><br><span class="line">	map.put(&quot;thValue&quot;, &quot;thValue 设置当前元素的value值&quot;);</span><br><span class="line">	return prefix+&quot;/testThymeleaf&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>效果如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">thValue 设置当前元素的value值</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="3-th-each"><a href="#3-th-each" class="headerlink" title="3. th:each"></a>3. th:each</h4><blockquote>
+<p>遍历循环元素，和th:text或th:value一起使用。注意该属性修饰的标签位置，详细往后看。优先级很高：order=2</p>
+</blockquote>
+<ul>
+<li><p>用法1</p>
+<ul>
+<li><p>HTML代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--th:each 遍历列表，常用，优先级很高，仅此于代码块的插入--&gt;</span><br><span class="line">&lt;!--th:each 修饰在div上，则div层重复出现，若只想p标签遍历，则修饰在p标签上--&gt;</span><br><span class="line">&lt;div style=&quot;background: yellow&quot; th:each=&quot;message : $&#123;thEach&#125;&quot;&gt; </span><br><span class="line">    &lt;!-- 遍历整个div-p，不推荐--&gt;</span><br><span class="line">    &lt;p th:text=&quot;$&#123;message&#125;&quot; /&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>后台代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;/testThymeleaf&quot;)</span><br><span class="line">public String testThymeleaf(ModelMap map)&#123;</span><br><span class="line">    map.put(&quot;thEach&quot;, Arrays.asList(&quot;遍历列表1&quot;,&quot;遍历列表2&quot;,&quot;遍历列表3&quot;,&quot;遍历列表4&quot;));</span><br><span class="line">    return prefix+&quot;/testThymeleaf&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>效果如下<br>  <img src="div-p%E4%B8%80%E8%B5%B7%E9%81%8D%E5%8E%86.jpg" alt="查看不了，请留言" title="div-p都遍历"></p>
+</li>
+</ul>
+</li>
+<li><p>用法二（常用,注意th:each标签的位置）</p>
+<ul>
+<li><p>HTML代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&quot;background: yellow&quot;&gt; </span><br><span class="line">&lt;!--只遍历p，推荐使用--&gt;</span><br><span class="line">    &lt;p th:text=&quot;$&#123;message&#125;&quot; th:each=&quot;message : $&#123;thEach&#125;&quot; /&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>后台代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;/testThymeleaf&quot;)</span><br><span class="line">public String testThymeleaf(ModelMap map)&#123;</span><br><span class="line">    map.put(&quot;thEach&quot;, Arrays.asList(&quot;遍历列表1&quot;,&quot;遍历列表2&quot;,&quot;遍历列表3&quot;,&quot;遍历列表4&quot;));</span><br><span class="line">    return prefix+&quot;/testThymeleaf&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>效果如下<br><img src="%E9%81%8D%E5%8E%86p.png" alt="查看不了，请留言" title="只遍历p标签"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-th-if"><a href="#4-th-if" class="headerlink" title="4. th:if"></a>4. th:if</h4><blockquote>
+<p>条件判断，类似的还有th:unless，th:switch，th:case。优先级较高：order=3</p>
+</blockquote>
+<ul>
+<li><p>HTML代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--th:if 条件判断，类似的有th:switch，th:case，优先级仅次于th:each, 其中#strings是变量表达式的内置方法--&gt;</span><br><span class="line">&lt;!--先判断th:if是否成立，，如果不成立就不显示整个P标签--&gt;</span><br><span class="line">&lt;p th:text=&quot;$&#123;thIf&#125;&quot; th:if=&quot;$&#123;not #strings.isEmpty(thIf)&#125;&quot;&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>后台代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   @RequestMapping(&quot;/testThymeleaf&quot;)</span><br><span class="line">public String testThymeleaf(ModelMap map)&#123;</span><br><span class="line">	map.put(&quot;thIf&quot;, &quot;我是有内容的&quot;);</span><br><span class="line">	return prefix+&quot;/testThymeleaf&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>效果如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我是有内容的</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="5-th-object"><a href="#5-th-object" class="headerlink" title="5. th:object"></a>5. th:object</h4><blockquote>
+<p>声明变量，一般和*{}一起配合使用，达到偷懒的效果。优先级一般：order=4</p>
+</blockquote>
+<ul>
+<li><p>HTML代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--th:object 声明变量，和*&#123;&#125; 一起使用--&gt;</span><br><span class="line">&lt;div th:object=&quot;$&#123;thObject&#125;&quot;&gt;</span><br><span class="line">    &lt;p&gt;对象的id: &lt;span th:text=&quot;*&#123;id&#125;&quot; /&gt;&lt;/p&gt;&lt;!--th:text=&quot;$&#123;thObject.id&#125;&quot;--&gt;</span><br><span class="line">    &lt;p&gt;对象的name: &lt;span th:text=&quot;*&#123;name&#125;&quot; /&gt;&lt;/p&gt;&lt;!--$&#123;thObject.thName&#125;--&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>后台代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   @RequestMapping(&quot;/testThymeleaf&quot;)</span><br><span class="line">public String testThymeleaf(ModelMap map)&#123;</span><br><span class="line">	TestZk testZk = new TestZk();</span><br><span class="line">	testZk.setId(1L);</span><br><span class="line">	testZk.setName(&quot;wzk&quot;);</span><br><span class="line">	map.put(&quot;thObject&quot;, testZk);</span><br><span class="line">	return prefix+&quot;/testThymeleaf&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>效果如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">对象的id: 1</span><br><span class="line">对象的name: wzk</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="二-常用th属性使用"><a href="#二-常用th属性使用" class="headerlink" title="二. 常用th属性使用"></a>二. 常用th属性使用</h3><ul>
+<li>使用Thymeleaf属性需要注意点以下五点：<ul>
+<li>一、若要使用Thymeleaf语法，首先要声明名称空间： xmlns:th=”<a href="http://www.thymeleaf.org&quot;" target="_blank" rel="noopener">http://www.thymeleaf.org&quot;</a></li>
+<li>二、设置文本内容 th:text，设置input的值 th:value，循环输出 th:each，条件判断 th:if，插入代码块 th:insert，定义代码块 th:fragment，声明变量 th:object</li>
+<li>三、th:each 的用法需要格外注意，打个比方：如果你要循环一个div中的p标签，则th:each属性必须放在p标签上。若你将th:each属性放在div上，则循环的是将整个div。</li>
+<li>四、变量表达式中提供了很多的内置方法，该内置方法是用#开头，请不要与#{}消息表达式弄混。</li>
+<li>五、th:insert，th:replace，th:include 三种插入代码块的效果相似，但区别很大。</li>
+</ul>
+</li>
+</ul>
+<h2 id="二、标准表达式语法"><a href="#二、标准表达式语法" class="headerlink" title="二、标准表达式语法"></a>二、标准表达式语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$&#123;...&#125; 变量表达式，Variable Expressions</span><br><span class="line"></span><br><span class="line">@&#123;...&#125; 链接表达式，Link URL Expressions</span><br><span class="line"></span><br><span class="line">#&#123;...&#125; 消息表达式，Message Expressions</span><br><span class="line"></span><br><span class="line">~&#123;...&#125; 代码块表达式，Fragment Expressions</span><br><span class="line"></span><br><span class="line">*&#123;...&#125; 选择变量表达式，Selection Variable Expressions</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>变量表达式使用频率最高，其功能也是非常的丰富。所以我们先从简单的代码块表达式开始，然后是消息表达式，再是链接表达式，最后是变量表达式，随带介绍选择变量表达式</p>
+</blockquote>
+<h3 id="1-…-代码块表达式"><a href="#1-…-代码块表达式" class="headerlink" title="1. ~{…} 代码块表达式"></a>1. ~{…} 代码块表达式</h3><ul>
+<li><p>支持两种语法结构</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">推荐：~&#123;templatename::fragmentname&#125;</span><br><span class="line">支持：~&#123;templatename::#id&#125;</span><br><span class="line"></span><br><span class="line">templatename：模版名，Thymeleaf会根据模版名解析完整路径：/resources/templates/templatename.html，要注意文件的路径。</span><br><span class="line">fragmentname：片段名，Thymeleaf通过th:fragment声明定义代码块，即：th:fragment=&quot;fragmentname&quot;</span><br><span class="line">id：HTML的id选择器，使用时要在前面加上#号，不支持class选择器。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>代码块表达式的使用</p>
+<ul>
+<li>代码块表达式需要配合th属性（th:insert，th:replace，th:include）一起使用。</li>
+<li>th:insert：将代码块片段整个插入到使用了th:insert的HTML标签中，</li>
+<li>th:replace：将代码块片段整个替换使用了th:replace的HTML标签中，</li>
+<li>th:include：将代码块片段包含的内容插入到使用了th:include的HTML标签中，</li>
+<li>用一个官方例子来区分三者的不同，第三部分会通过实战再次用到该知识。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--th:fragment定义代码块标识--&gt;</span><br><span class="line">&lt;footer th:fragment=&quot;copy&quot;&gt;</span><br><span class="line">        内容。。。。。</span><br><span class="line">&lt;/footer&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--三种不同的引入方式--&gt;</span><br><span class="line">&lt;div th:insert=&quot;footer :: copy&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div th:replace=&quot;footer :: copy&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div th:include=&quot;footer :: copy&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--th:insert是在div中插入代码块，即多了一层div--&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;footer&gt;</span><br><span class="line">        内容。。。。。</span><br><span class="line">    &lt;/footer&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!--th:replace是将代码块代替当前div，其html结构和之前一致--&gt;</span><br><span class="line">&lt;footer&gt;</span><br><span class="line">        内容。。。。。</span><br><span class="line">&lt;/footer&gt;</span><br><span class="line">&lt;!--th:include是将代码块footer的内容插入到div中，即少了一层footer--&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">        内容。。。。。</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-…-消息表达式"><a href="#3-…-消息表达式" class="headerlink" title="3. #{…} 消息表达式"></a>3. #{…} 消息表达式</h3><blockquote>
+<p>消息表达式一般用于国际化的场景。结构：th:text=”#{msg}” 。会在第三部分的实战详细介绍。</p>
+</blockquote>
+<h3 id="4-…-链接表达式"><a href="#4-…-链接表达式" class="headerlink" title="4. @{…} 链接表达式"></a>4. @{…} 链接表达式</h3><ul>
+<li><p>链接表达式好处</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">不管是静态资源的引用，form表单的请求，凡是链接都可以用@&#123;...&#125; 。这样可以动态获取项目路径，即便项目名变了，依然可以正常访问</span><br><span class="line">修改项目名，链接表达式会自动修改路径，避免资源文件找不到 (等价于 应用的访问路径)</span><br><span class="line">&lt;!--可以不加项目名称,直接用&quot;/&quot;--&gt;</span><br><span class="line">server.context-path = /项目名称 </span><br><span class="line">&lt;!--SpirngBoot2.0开启弃用了，改为使用一下参数设置--&gt;</span><br><span class="line">server.servlet.context-path = /项目名称</span><br><span class="line">//可以不填</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>链接表达式结构</p>
+<ul>
+<li><p>无参：@{/xxx}</p>
+</li>
+<li><p>有参：@{/xxx(k1=v1,k2=v2)} 对应url结构：xxx?k1=v1&amp;k2=v2</p>
+</li>
+<li><p>引入本地资源：@{/项目本地的资源路径}</p>
+</li>
+<li><p>引入外部资源：@{/webjars/资源在jar包中的路径}</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   //使用ruoyi做例子</span><br><span class="line">&lt;script th:src=&quot;@&#123;/js/jquery.min.js&#125;&quot;&gt;&lt;/script&gt;</span><br><span class="line">   在没有配置server.context-path的情况下</span><br></pre></td></tr></table></figure>
+
+<p>引用的文件是：</p>
+<p><img src="%E5%BC%95%E7%94%A8js.png" alt="查看不了，请留言" title="js所在的位置"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">当设置server.servlet.context-path = / </span><br><span class="line">请求的url为：http://localhost/js/jquery.min.js</span><br><span class="line"></span><br><span class="line">当设置server.servlet.context-path = /wzk </span><br><span class="line">请求的url为：http://localhost/wzk/js/jquery.min.js</span><br><span class="line">//只是访问的路径改变了，后台引用文件的位置没变化</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-…-变量表达式"><a href="#5-…-变量表达式" class="headerlink" title="5. ${…}变量表达式"></a>5. ${…}变量表达式</h3><p>变量表达式有丰富的内置方法，使其更强大，更方便。</p>
+<ul>
+<li>变量表达式功能<ul>
+<li>一、可以获取对象的属性和方法</li>
+<li>二、可以使用ctx，vars，locale，request，response，session，servletContext内置对象</li>
+<li>三、可以使用dates，numbers，strings，objects，arrays，lists，sets，maps等内置方法（重点介绍）</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>常用的内置对象</p>
+<ul>
+<li><p>一、ctx ：上下文对象。</p>
+</li>
+<li><p>二、vars ：上下文变量。</p>
+</li>
+<li><p>三、locale：上下文的语言环境。</p>
+</li>
+<li><p>四、request：（仅在web上下文）的 HttpServletRequest 对象。</p>
+</li>
+<li><p>五、response：（仅在web上下文）的 HttpServletResponse 对象。</p>
+</li>
+<li><p>六、session：（仅在web上下文）的 HttpSession 对象。</p>
+</li>
+<li><p>七、servletContext：（仅在web上下文）的 ServletContext 对象</p>
+<ul>
+<li>内置对象使用示例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;p th:text=&quot;$&#123;#ctx.#servletContext.getContextPath()&#125;&quot; /&gt;</span><br><span class="line">&lt;p th:text=&quot;$&#123;#vars.#servletContext.getContextPath()&#125;&quot; /&gt;</span><br><span class="line">&lt;p th:text=&quot;$&#123;#request.getContextPath()&#125;&quot; /&gt;</span><br><span class="line">&lt;p th:text=&quot;$&#123;#response.addHeader(&apos;headInfo&apos;,&apos;content&apos;)&#125;&quot; /&gt;</span><br><span class="line">&lt;p th:text=&quot;$&#123;#session.getAttribute(&apos;mySession&apos;)&#125;&quot; /&gt;</span><br><span class="line">&lt;p th:text=&quot;$&#123;#servletContext.getContextPath()&#125;&quot; /&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>常用的内置方法</p>
+<ul>
+<li>一、strings：字符串格式化方法，常用的Java方法它都有。比如：equals，equalsIgnoreCase，length，trim，toUpperCase，toLowerCase，indexOf，substring，replace，startsWith，endsWith，contains，containsIgnoreCase等</li>
+<li>二、numbers：数值格式化方法，常用的方法有：formatDecimal等</li>
+<li>三、bools：布尔方法，常用的方法有：isTrue，isFalse等</li>
+<li>四、arrays：数组方法，常用的方法有：toArray，length，isEmpty，contains，containsAll等</li>
+<li>五、lists，sets：集合方法，常用的方法有：toList，size，isEmpty，contains，containsAll，sort等</li>
+<li>六、maps：对象方法，常用的方法有：size，isEmpty，containsKey，containsValue等</li>
+<li>七、dates：日期方法，常用的方法有：format，year，month，hour，createNow等</li>
+</ul>
+</li>
+<li><p>常用内置方法示例</p>
+<ul>
+<li><p>前端代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">    &lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot; xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;ITDragon Thymeleaf 内置方法&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h2&gt;ITDragon Thymeleaf 内置方法&lt;/h2&gt;</span><br><span class="line">    &lt;h3&gt;#strings &lt;/h3&gt;</span><br><span class="line">    &lt;div th:if=&quot;$&#123;not #strings.isEmpty(itdragonStr)&#125;&quot; &gt;</span><br><span class="line">        &lt;p&gt;Old Str : &lt;span th:text=&quot;$&#123;itdragonStr&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;toUpperCase : &lt;span th:text=&quot;$&#123;#strings.toUpperCase(itdragonStr)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;toLowerCase : &lt;span th:text=&quot;$&#123;#strings.toLowerCase(itdragonStr)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;equals : &lt;span th:text=&quot;$&#123;#strings.equals(itdragonStr, &apos;itdragonblog&apos;)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;equalsIgnoreCase : &lt;span th:text=&quot;$&#123;#strings.equalsIgnoreCase(itdragonStr, &apos;itdragonblog&apos;)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;indexOf : &lt;span th:text=&quot;$&#123;#strings.indexOf(itdragonStr, &apos;r&apos;)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;substring : &lt;span th:text=&quot;$&#123;#strings.substring(itdragonStr, 2, 8)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;replace : &lt;span th:text=&quot;$&#123;#strings.replace(itdragonStr, &apos;it&apos;, &apos;IT&apos;)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;startsWith : &lt;span th:text=&quot;$&#123;#strings.startsWith(itdragonStr, &apos;it&apos;)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;contains : &lt;span th:text=&quot;$&#123;#strings.contains(itdragonStr, &apos;IT&apos;)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;h3&gt;#numbers &lt;/h3&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;p&gt;formatDecimal 整数部分随意，小数点后保留两位，四舍五入: &lt;span th:text=&quot;$&#123;#numbers.formatDecimal(itdragonNum, 0, 2)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;formatDecimal 整数部分保留五位数，小数点后保留两位，四舍五入: &lt;span th:text=&quot;$&#123;#numbers.formatDecimal(itdragonNum, 5, 2)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;h3&gt;#bools &lt;/h3&gt;</span><br><span class="line">    &lt;div th:if=&quot;$&#123;#bools.isTrue(itdragonBool)&#125;&quot;&gt;</span><br><span class="line">        &lt;p th:text=&quot;$&#123;itdragonBool&#125;&quot;&gt;&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;h3&gt;#arrays &lt;/h3&gt;</span><br><span class="line">    &lt;div th:if=&quot;$&#123;not #arrays.isEmpty(itdragonArray)&#125;&quot;&gt;</span><br><span class="line">        &lt;p&gt;length : &lt;span th:text=&quot;$&#123;#arrays.length(itdragonArray)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;contains : &lt;span th:text=&quot;$&#123;#arrays.contains(itdragonArray, 5)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;containsAll : &lt;span th:text=&quot;$&#123;#arrays.containsAll(itdragonArray, itdragonArray)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;h3&gt;#lists &lt;/h3&gt;</span><br><span class="line">    &lt;div th:if=&quot;$&#123;not #lists.isEmpty(itdragonList)&#125;&quot;&gt;</span><br><span class="line">        &lt;p&gt;size : &lt;span th:text=&quot;$&#123;#lists.size(itdragonList)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;contains : &lt;span th:text=&quot;$&#123;#lists.contains(itdragonList, 0)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;sort : &lt;span th:text=&quot;$&#123;#lists.sort(itdragonList)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;h3&gt;#maps &lt;/h3&gt;</span><br><span class="line">    &lt;div th:if=&quot;$&#123;not #maps.isEmpty(itdragonMap)&#125;&quot;&gt;</span><br><span class="line">        &lt;p&gt;size : &lt;span th:text=&quot;$&#123;#maps.size(itdragonMap)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;containsKey : &lt;span th:text=&quot;$&#123;#maps.containsKey(itdragonMap, &apos;thName&apos;)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;containsValue : &lt;span th:text=&quot;$&#123;#maps.containsValue(itdragonMap, &apos;#maps&apos;)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;h3&gt;#dates &lt;/h3&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;p&gt;format : &lt;span th:text=&quot;$&#123;#dates.format(itdragonDate)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;custom format : &lt;span th:text=&quot;$&#123;#dates.format(itdragonDate, &apos;yyyy-MM-dd HH:mm:ss&apos;)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;day : &lt;span th:text=&quot;$&#123;#dates.day(itdragonDate)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;month : &lt;span th:text=&quot;$&#123;#dates.month(itdragonDate)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;monthName : &lt;span th:text=&quot;$&#123;#dates.monthName(itdragonDate)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;year : &lt;span th:text=&quot;$&#123;#dates.year(itdragonDate)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;dayOfWeekName : &lt;span th:text=&quot;$&#123;#dates.dayOfWeekName(itdragonDate)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;hour : &lt;span th:text=&quot;$&#123;#dates.hour(itdragonDate)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;minute : &lt;span th:text=&quot;$&#123;#dates.minute(itdragonDate)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;second : &lt;span th:text=&quot;$&#123;#dates.second(itdragonDate)&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">        &lt;p&gt;createNow : &lt;span th:text=&quot;$&#123;#dates.createNow()&#125;&quot;/&gt;&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>后端代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;varexpressions&quot;)</span><br><span class="line">public String varexpressions(ModelMap map) &#123;</span><br><span class="line">  map.put(&quot;itdragonStr&quot;, &quot;itdragonBlog&quot;);</span><br><span class="line">  map.put(&quot;itdragonBool&quot;, true);</span><br><span class="line">  map.put(&quot;itdragonArray&quot;, new Integer[]&#123;1,2,3,4&#125;);</span><br><span class="line">  map.put(&quot;itdragonList&quot;, Arrays.asList(1,3,2,4,0));</span><br><span class="line">  Map itdragonMap = new HashMap();</span><br><span class="line">  itdragonMap.put(&quot;thName&quot;, &quot;$&#123;#...&#125;&quot;);</span><br><span class="line">  itdragonMap.put(&quot;desc&quot;, &quot;变量表达式内置方法&quot;);</span><br><span class="line">  map.put(&quot;itdragonMap&quot;, itdragonMap);</span><br><span class="line">  map.put(&quot;itdragonDate&quot;, new Date());</span><br><span class="line">  map.put(&quot;itdragonNum&quot;, 888.888D);</span><br><span class="line">  return &quot;grammar/varexpressions&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="三-Thymeleaf在SpringBoot应用"><a href="#三-Thymeleaf在SpringBoot应用" class="headerlink" title="三. Thymeleaf在SpringBoot应用"></a>三. Thymeleaf在SpringBoot应用</h2><p>Thymeleaf是Spring Boot 官方推荐使用的模版引擎，这也意味着用Thymeleaf比其他模版引擎更简单。<br>开发步骤：<br>第一步：引入Thymeleaf依赖。<br>第二步： 提取公共页面，提高代码的重用性，统一页面风格。<br>第三步：页面显示和国际化功能</p>
+<ul>
+<li>引入Thymeleaf<br>pom.xml 引入Thymeleaf的依赖，并确定其版本<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--引入模版引擎thymeleaf--&gt;</span><br><span class="line">&lt;dependency&gt; </span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h2><p>一、Thymeleaf 是Spring Boot 官方推荐的Java模版引擎框架，其文件扩展名为.html</p>
+<p>二、Thymeleaf 几乎支持所有的html属性，用于赋值的th:text和th:value，用于循环遍历的th:each，用于条件判断的th:if</p>
+<p>三、Thymeleaf 提供四种标准的表达式，有丰富内置方法的${}，用于国际化的#{}，用于代码插入的~{}，用于处理链接的@{}</p>
+<p>四、一定要注意循环遍历的th:each和代码插入的th:insert用法，尽量避免破坏html结构的细节问题</p>
+<blockquote>
+<p>参考文章 <a href="https://www.cnblogs.com/itdragon/archive/2018/04/13/8724291.html" target="_blank" rel="noopener">https://www.cnblogs.com/itdragon/archive/2018/04/13/8724291.html</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/work.jpg" alt="zhenKang 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/work.jpg" alt="zhenKang 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Thymeleaf/" rel="tag"># Thymeleaf</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/18/若依时间表单/" rel="next" title="若依时间表单">
+                <i class="fa fa-chevron-left"></i> 若依时间表单
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/work.jpg" alt="zhenKang">
+            
+              <p class="site-author-name" itemprop="name">zhenKang</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://www.zhihu.com/people/bei-ji-de-ji-ye" title="知乎 &rarr; http://www.zhihu.com/people/bei-ji-de-ji-ye" rel="noopener" target="_blank"><i class="fa fa-fw fa-hand-o-right"></i>知乎</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Thymeleaf3语法"><span class="nav-number">1.</span> <span class="nav-text">Thymeleaf3语法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-th属性"><span class="nav-number">1.1.</span> <span class="nav-text">一. th属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-常用th属性解读"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 常用th属性解读</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-th-text"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">1. th:text</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-th-value"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">2. th:value</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-th-each"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">3. th:each</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-th-if"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">4. th:if</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-th-object"><span class="nav-number">1.1.1.5.</span> <span class="nav-text">5. th:object</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-常用th属性使用"><span class="nav-number">1.1.2.</span> <span class="nav-text">二. 常用th属性使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、标准表达式语法"><span class="nav-number">1.2.</span> <span class="nav-text">二、标准表达式语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-…-代码块表达式"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. ~{…} 代码块表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-…-消息表达式"><span class="nav-number">1.2.2.</span> <span class="nav-text">3. #{…} 消息表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-…-链接表达式"><span class="nav-number">1.2.3.</span> <span class="nav-text">4. @{…} 链接表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-…-变量表达式"><span class="nav-number">1.2.4.</span> <span class="nav-text">5. ${…}变量表达式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-Thymeleaf在SpringBoot应用"><span class="nav-number">1.3.</span> <span class="nav-text">三. Thymeleaf在SpringBoot应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、总结"><span class="nav-number">1.4.</span> <span class="nav-text">四、总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhenKang</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="30" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'Jl0oiuC2NYzydyFd2T2KmHDT-gzGzoHsz',
+    appKey: 'm0dDD9kyFHapkvbuhnDKttSE',
+    placeholder: '有空会回复你的！',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+if ($('body').find('pre.mermaid').length) {
+  $.ajax({
+    type: 'GET',
+    url: '//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js',
+    dataType: 'script',
+    cache: true,
+    success: function() {
+      mermaid.initialize({
+        theme: 'forest',
+        logLevel: 3,
+        flowchart: { curve: 'linear' },
+        gantt: { axisFormat: '%m/%d/%Y' },
+        sequence: { actorMargin: 50 }
+      });
+    }
+  });
+}
+</script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
