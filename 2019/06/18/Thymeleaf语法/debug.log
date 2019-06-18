@@ -3,3 +3,5 @@
 [0618/230242:WARNING:dns_config_service_win.cc(674)] Failed to read DnsConfig.
 [0618/235021:WARNING:dns_config_service_win.cc(674)] Failed to read DnsConfig.
 [0618/235021:WARNING:dns_config_service_win.cc(674)] Failed to read DnsConfig.
+[0619/001023:INFO:exception_record.cc(518)] [QB]Process ID: 1000 Type: 2
+[0619/001023:INFO:http_cache_transaction.cc(72)] IgnoreZeroCacheError: 0
